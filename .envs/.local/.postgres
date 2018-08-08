@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=autodeploy
+POSTGRES_USER=TlphKFmNjwKdxMlMCTWCKkfOpogZaKoO
+POSTGRES_PASSWORD=qthQrO8kw7zxf5b2TfHROLEmXUNWBDulaikT0MhI9oLOvOaGGlMt2PfUzQmAzzCT
