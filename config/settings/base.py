@@ -9,6 +9,10 @@ APPS_DIR = ROOT_DIR.path('autodeploy')
 
 env = environ.Env()
 
+SECRET_KEY = env.str('SECRET_KEY', '')
+PGCRYPTO_DEFAULT_KEY = SECRET_KEY
+PRIVATE_DIR = '/var/autodepoly/secure'
+
 READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
 if READ_DOT_ENV_FILE:
     # OS environment variables take precedence over variables from .env
@@ -24,7 +28,8 @@ DEBUG = env.bool('DJANGO_DEBUG', False)
 # In Windows, this must be set to your system time zone.
 TIME_ZONE = 'Asia/Shanghai'
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en-us'
+#  LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-cn'
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
@@ -71,6 +76,7 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'autodeploy.users.apps.UsersAppConfig',
+    'autodeploy.proverty.apps.ProvertyConfig',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
