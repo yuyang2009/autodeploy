@@ -3,7 +3,7 @@ import logging
 
 from autodeploy.taskapp.celery import app
 
-from .securefile import PrivateKey, PublicKey, KnownHosts, SecureFile
+from .securefile import PrivateKey, PublicKey, KnownHosts, SecureFileStorage
 
 logger = logging.getLogger(__name__)
 
@@ -22,3 +22,9 @@ def generate_private_key(environment_id):
 def read_public_key(environment_id):
     environment = Environment.object.get(pk=environment_id)
     return PublicKey(environment_id)
+
+@app.task
+def cleanup_file(environment_id):
+    SecureFileStorage(environment_id).remove()
+
+    

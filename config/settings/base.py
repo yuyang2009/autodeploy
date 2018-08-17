@@ -71,8 +71,8 @@ THIRD_PARTY_APPS = [
     'crispy_forms',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
     'rest_framework',
+    'guardian',
 ]
 LOCAL_APPS = [
     'autodeploy.users.apps.UsersAppConfig',
@@ -95,6 +95,7 @@ MIGRATION_MODULES = {
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = 'users.User'
@@ -266,3 +267,4 @@ SOCIALACCOUNT_ADAPTER = 'autodeploy.users.adapters.SocialAccountAdapter'
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+DEFAULT_DEPARTMENT_GROUPS = {'admin': 'Admin', 'user': 'User'}
