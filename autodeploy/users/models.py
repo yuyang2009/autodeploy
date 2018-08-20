@@ -12,6 +12,7 @@ class User(AbstractUser):
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
+    REQUIRED_FIELDS = ['name']
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
@@ -64,7 +65,7 @@ class User(AbstractUser):
     #     send_mail(subject, message, from_email, [self.email])
 
 from django.contrib.auth.models import Group
-from proverty.models import Department, Application, Environment
+from autodeploy.proverty.models import Department, Application, Environment
 
 class DepartmentGroup(Group):
     department = models.ForeignKey(Department, related_name='groups', on_delete=models.CASCADE)
