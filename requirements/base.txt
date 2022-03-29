@@ -25,4 +25,4 @@ djangorestframework==3.8.2  # https://github.com/encode/django-rest-framework
 coreapi==2.3.3  # https://github.com/core-api/python-client
 
 # proverty
-paramiko==1.14.0
+paramiko==2.10.1
